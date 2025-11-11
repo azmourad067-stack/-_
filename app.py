@@ -711,7 +711,7 @@ def extract_race_data(url):
 
 def extract_horse_data(cols):
     """Extrait les données d'un cheval depuis les colonnes"""
-    try:
+ try:
         horse_data = {}
         
         for i, col in enumerate(cols):
@@ -721,13 +721,13 @@ def extract_horse_data(cols):
             
             if i == 0 and text.isdigit():
                 horse_data['Numéro de corde'] = text
-            elif re.match(r'^\d+[.,]\d+, text):
+            elif re.match(r'^\d+[.,]\d+$', text):
                 horse_data['Cote'] = text
-            elif re.match(r'^\d+[.,]?\d*\s*(kg|KG)?, text) and 'Poids' not in horse_data:
+            elif re.match(r'^\d+[.,]?\d*\s*(kg|KG)?$', text) and 'Poids' not in horse_data:
                 horse_data['Poids'] = text
             elif len(text) > 2 and len(text) < 25 and 'Nom' not in horse_data:
                 horse_data['Nom'] = text
-            elif re.match(r'^[0-9a-zA-Z]{2,10}, text) and 'Musique' not in horse_data:
+            elif re.match(r'^[0-9a-zA-Z]{2,10}$', text) and 'Musique' not in horse_data:
                 horse_data['Musique'] = text
             elif len(text) in [3, 4] and 'Âge/Sexe' not in horse_data:
                 horse_data['Âge/Sexe'] = text
