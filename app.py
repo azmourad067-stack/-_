@@ -721,7 +721,7 @@ def extract_horse_data(cols):
             
             if i == 0 and text.isdigit():
                 horse_data['Numéro de corde'] = text
-            elif re.match(r'^\d+[.,]\d+, 'text'):
+            elif re.match(r'^\d+[.,]\d+, text):
                 horse_data['Cote'] = text
             elif re.match(r'^\d+[.,]?\d*\s*(kg|KG)?, text) and 'Poids' not in horse_data:
                 horse_data['Poids'] = text
