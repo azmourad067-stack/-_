@@ -709,9 +709,14 @@ def extract_race_data(url):
         st.warning(f"⚠️ Utilisation des données de démo: {e}")
         return generate_demo_data(12)
 
+def clean_text(text):
+    """Nettoie le texte"""
+    if pd.isna(text):
+        return ""
+    return re.sub(r'[^\w\s.,-]', '', str(text)).strip()
+
 def extract_horse_data(cols):
-    """Extrait les données d'un cheval depuis les colonnes"""
-    
+    try:
         horse_data = {}
         
         for i, col in enumerate(cols):
