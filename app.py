@@ -711,7 +711,7 @@ def extract_race_data(url):
 
 def extract_horse_data(cols):
     """Extrait les données d'un cheval depuis les colonnes"""
- try:
+    
         horse_data = {}
         
         for i, col in enumerate(cols):
